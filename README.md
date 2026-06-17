@@ -1,5 +1,22 @@
 # 🚗 Detección de Placas de Vehículos con YOLOv8n, ExecuTorch y Hugging Face Spaces
 
+---
+
+# 👨‍💻 Autores
+
+- **Wilmer Sebastian Perez Cuastumal** - wiperezc@unal.edu.co
+- **Daniel Mauricio Mejia Hoyos** - dmejiaho@unal.edu.co
+
+Proyecto desarrollado para la asignatura:
+
+**Procesamiento Digital de Imágenes - PDI**
+
+Universidad Nacional de Colombia
+
+2026
+
+---
+
 ## 📖 Descripción General
 
 Este proyecto implementa un sistema de detección automática de placas de vehículos (automóviles y motocicletas) utilizando técnicas de Visión por Computador basadas en Deep Learning.
@@ -18,9 +35,111 @@ Desarrollar una solución completa capaz de:
 - Ejecutar inferencias optimizadas mediante ExecuTorch.
 - Desplegar el modelo como servicio web.
 - Proporcionar una interfaz amigable para usuarios finales.
-- Documentar todo el flujo de entrenamiento, exportación y despliegue.
+- Documentar todo el flujo de entrenamiento, exportación y despliegue en Hugging Face Spaces mediante Docke.
 
 ---
+
+# 📊 Descripción de la Base de Datos
+
+Para el entrenamiento del modelo se utilizó el conjunto de datos **Vehicle Registration Plates Dataset**, desarrollado por **Augmented Startups** y publicado en **Roboflow Universe**. El dataset está diseñado específicamente para tareas de detección de placas vehiculares mediante técnicas de Visión por Computador y Aprendizaje Profundo.
+
+## Información General
+
+| Característica | Valor |
+|----------------|--------|
+| Nombre | Vehicle Registration Plates Dataset |
+| Autor | Augmented Startups |
+| Tipo de tarea | Object Detection |
+| Licencia | CC BY 4.0 |
+| Número de clases | 1 |
+| Clase detectada | License_Plate |
+| Plataforma | Roboflow Universe |
+
+## Tamaño del Dataset
+
+La versión utilizada para este proyecto corresponde a la versión **v1 (original-images)** del dataset, compuesta por un total de **8.823 imágenes anotadas**.
+
+### Distribución de los Datos
+
+| Conjunto | Cantidad de imágenes | Porcentaje |
+|-----------|---------------------|------------|
+| Entrenamiento | 6.176 | 70 % |
+| Validación | 1.765 | 20 % |
+| Prueba | 882 | 10 % |
+| **Total** | **8.823** | **100 %** |
+
+Esta división permitió entrenar el modelo, ajustar hiperparámetros durante la validación y evaluar el rendimiento final sobre datos no observados previamente.
+
+## Preprocesamiento Aplicado
+
+Antes de la exportación del conjunto de datos, Roboflow aplicó automáticamente las siguientes transformaciones:
+
+- Auto-Orient de las imágenes.
+- Corrección de orientación basada en metadatos EXIF.
+- Eliminación de inconsistencias de orientación entre imágenes.
+
+## Aumentaciones
+
+La versión utilizada para este proyecto no aplicó técnicas adicionales de aumento de datos (*Data Augmentation*). Las imágenes fueron exportadas en su estado original para preservar las características reales de los escenarios vehiculares.
+
+## Formato de Anotación
+
+El dataset puede exportarse en múltiples formatos compatibles con los principales frameworks de detección de objetos:
+
+- YOLOv8
+- YOLOv5
+- YOLOv7
+- YOLOv11
+- YOLOv12
+- COCO JSON
+- Pascal VOC XML
+- TFRecord
+- YOLO Darknet
+
+Para este proyecto se utilizó el formato **YOLOv8**, compatible con la librería **Ultralytics** empleada durante el entrenamiento.
+
+## Características de las Imágenes
+
+Las imágenes contienen escenarios reales de tráfico donde aparecen:
+
+- Automóviles particulares.
+- Motocicletas.
+- Vehículos en movimiento.
+- Vehículos estacionados.
+- Diferentes condiciones de iluminación.
+- Diferentes ángulos de captura.
+- Oclusiones parciales de las placas.
+
+Estas características permiten entrenar modelos con una mayor capacidad de generalización frente a situaciones reales de operación.
+
+## Justificación de la Selección del Dataset
+
+Este conjunto de datos fue seleccionado debido a:
+
+- Su amplio número de imágenes anotadas.
+- La disponibilidad pública para investigación académica.
+- La compatibilidad con YOLOv8.
+- La presencia de placas vehiculares en diferentes condiciones ambientales.
+- Su amplia utilización en proyectos de *Automatic Number Plate Recognition (ANPR)*.
+
+## Referencia del Dataset
+
+Dataset original disponible en:
+
+<https://universe.roboflow.com/augmented-startups/vehicle-registration-plates-trudk/dataset/1>
+
+### Cita sugerida por Roboflow
+
+```bibtex
+@misc{vehicle-registration-plates-trudk_dataset,
+  title = {Vehicle Registration Plates Dataset},
+  type = {Open Source Dataset},
+  author = {Augmented Startups},
+  journal = {Roboflow Universe},
+  publisher = {Roboflow},
+  year = {2022}
+}
+```
 
 # 📂 Estructura del Repositorio
 
@@ -212,12 +331,28 @@ Implementa:
 
 ## 2. Dockerfile
 
-Define:
+Se creó automáticamente para construir el contenedor del Space.
 
-- Imagen base.
-- Dependencias.
-- Librerías requeridas.
-- Comando de ejecución.
+#### Dependencias principales:
+
+- Python 3.10
+- ExecuTorch
+- Torch 2.11
+- TorchVision
+- OpenCV
+- NumPy
+- Gradio
+- Ultralytics
+
+#### Configuración principal:
+
+- FROM python:3.10-slim
+
+El contenedor expone:
+
+Puerto 7860
+
+utilizado por Gradio
 
 ---
 
