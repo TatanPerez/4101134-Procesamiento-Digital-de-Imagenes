@@ -39,7 +39,37 @@ Desarrollar una solución completa capaz de:
 
 ---
 
-# 📊 Descripción de la Base de Datos
+
+# 📂 Estructura del Repositorio
+
+```text
+4101134-Procesamiento-Digital-de-Imagenes/
+│
+└── Proyecto Final/
+    │
+    ├── License_plate_detection_HF_Space.ipynb
+    ├── best.pt
+    └── yolo8nbest.pte
+```
+
+### Archivos
+
+| Archivo | Descripción |
+|----------|------------|
+| `License_plate_detection_HF_Space.ipynb` | Notebook principal para exportación y generación del Space de Hugging Face |
+| `best.pt` | Modelo YOLOv8n entrenado en formato PyTorch |
+| `yolo8nbest.pte` | Modelo exportado al formato ExecuTorch |
+| `app.py` | Aplicación Gradio generada dinámicamente |
+| `Dockerfile` | Configuración del contenedor Docker |
+| `README.md` | Configuración y documentación del Space |
+
+---
+
+# 📊 Descripción de la Base de Datos 
+
+Dataset disponible en Roboflow:
+
+https://universe.roboflow.com/augmented-startups/vehicle-registration-plates-trudk/dataset/1
 
 Para el entrenamiento del modelo se utilizó el conjunto de datos **Vehicle Registration Plates Dataset**, desarrollado por **Augmented Startups** y publicado en **Roboflow Universe**. El dataset está diseñado específicamente para tareas de detección de placas vehiculares mediante técnicas de Visión por Computador y Aprendizaje Profundo.
 
@@ -69,18 +99,6 @@ La versión utilizada para este proyecto corresponde a la versión **v1 (origina
 | **Total** | **8.823** | **100 %** |
 
 Esta división permitió entrenar el modelo, ajustar hiperparámetros durante la validación y evaluar el rendimiento final sobre datos no observados previamente.
-
-## Preprocesamiento Aplicado
-
-Antes de la exportación del conjunto de datos, Roboflow aplicó automáticamente las siguientes transformaciones:
-
-- Auto-Orient de las imágenes.
-- Corrección de orientación basada en metadatos EXIF.
-- Eliminación de inconsistencias de orientación entre imágenes.
-
-## Aumentaciones
-
-La versión utilizada para este proyecto no aplicó técnicas adicionales de aumento de datos (*Data Augmentation*). Las imágenes fueron exportadas en su estado original para preservar las características reales de los escenarios vehiculares.
 
 ## Formato de Anotación
 
@@ -121,68 +139,6 @@ Este conjunto de datos fue seleccionado debido a:
 - La compatibilidad con YOLOv8.
 - La presencia de placas vehiculares en diferentes condiciones ambientales.
 - Su amplia utilización en proyectos de *Automatic Number Plate Recognition (ANPR)*.
-
-## Referencia del Dataset
-
-Dataset original disponible en:
-
-<https://universe.roboflow.com/augmented-startups/vehicle-registration-plates-trudk/dataset/1>
-
-### Cita sugerida por Roboflow
-
-```bibtex
-@misc{vehicle-registration-plates-trudk_dataset,
-  title = {Vehicle Registration Plates Dataset},
-  type = {Open Source Dataset},
-  author = {Augmented Startups},
-  journal = {Roboflow Universe},
-  publisher = {Roboflow},
-  year = {2022}
-}
-```
-
-# 📂 Estructura del Repositorio
-
-```text
-4101134-Procesamiento-Digital-de-Imagenes/
-│
-└── Proyecto Final/
-    │
-    ├── License_plate_detection_HF_Space.ipynb
-    ├── best.pt
-    └── yolo8nbest.pte
-```
-
-### Archivos
-
-| Archivo | Descripción |
-|----------|------------|
-| `License_plate_detection_HF_Space.ipynb` | Notebook principal para exportación y generación del Space de Hugging Face |
-| `best.pt` | Modelo YOLOv8n entrenado en formato PyTorch |
-| `yolo8nbest.pte` | Modelo exportado al formato ExecuTorch |
-| `app.py` | Aplicación Gradio generada dinámicamente |
-| `Dockerfile` | Configuración del contenedor Docker |
-| `README.md` | Configuración y documentación del Space |
-
----
-
-# 📊 Dataset Utilizado
-
-El entrenamiento se realizó utilizando el dataset público:
-
-### Vehicle Registration Plates Dataset
-
-Dataset disponible en Roboflow:
-
-https://universe.roboflow.com/augmented-startups/vehicle-registration-plates-trudk/dataset/1
-
-Características:
-
-- Detección de placas vehiculares.
-- Automóviles.
-- Motocicletas.
-- Anotaciones en formato YOLO.
-- Compatible con Ultralytics YOLOv8.
 
 ---
 
@@ -461,15 +417,3 @@ https://pytorch.org/executorch
 https://huggingface.co/spaces
 
 ---
-
-# 👨‍💻 Autor
-
-**Tatan Pérez**
-
-Proyecto desarrollado para la asignatura:
-
-**Procesamiento Digital de Imágenes**
-
-Universidad de Caldas
-
-2026
