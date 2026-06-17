@@ -94,16 +94,29 @@ Class = License Plate
 
 # 📈 Resultados del Entrenamiento
 
-> Sustituir los siguientes valores por los obtenidos en la ejecución final del notebook.
+El modelo YOLOv8n fue entrenado durante 100 épocas utilizando el dataset Vehicle Registration Plates de Roboflow.
+
+### Métricas finales
+
+| Métrica | Resultado |
+|----------|----------|
+| Precision | 98.8 % |
+| Recall | 96.7 % |
+| mAP@50 | 98.4 % |
+| mAP@50-95 | 70.2 % |
+
+### Pérdidas finales
 
 | Métrica | Valor |
-|----------|--------|
-| Precision | XX.XX |
-| Recall | XX.XX |
-| mAP50 | XX.XX |
-| mAP50-95 | XX.XX |
+|----------|----------|
+| Train Box Loss | 0.93 |
+| Train Classification Loss | 0.34 |
+| Train DFL Loss | 1.05 |
+| Validation Box Loss | 1.05 |
+| Validation Classification Loss | 0.35 |
+| Validation DFL Loss | 1.09 |
 
-Estas métricas permiten evaluar la capacidad del modelo para localizar correctamente placas vehiculares en imágenes no vistas durante el entrenamiento.
+Estos resultados demuestran una alta capacidad del modelo para detectar placas vehiculares tanto en automóviles como en motocicletas, manteniendo un equilibrio adecuado entre precisión y capacidad de generalización.
 
 ---
 
