@@ -1,4 +1,4 @@
-# 🚗 Detección de Placas de Vehículos con YOLOv8n, ExecuTorch y Hugging Face Spaces
+#  Detección de Placas de Vehículos con YOLOv8n, ExecuTorch y Hugging Face Spaces
  
 ---
  **Proyecto Final** - Procesamiento digital de imagenes **PDI**
@@ -44,7 +44,7 @@ Desarrollar una solución completa capaz de:
 - Documentar todo el flujo de entrenamiento, exportación y despliegue en Hugging Face Spaces mediante Docker.
 ---
  
-## 📂 Estructura del Repositorio
+##  Estructura del Repositorio
  
 ```text
 4101134-Procesamiento-Digital-de-Imagenes/
@@ -352,7 +352,7 @@ Implementa:
 - Interfaz Gradio compatible con Gradio 6.
 ---
  
-## 2. Dockerfile 🐳
+## 2. Dockerfile 
  
 Se creó automáticamente para construir el contenedor del Space.
  
